@@ -98,6 +98,15 @@ numberbank purge-synthetic                                   # حذف داده �
 numberbank clear-cache                                       # پاک کردن کش HTTP
 ```
 
+اجرای Docker (اختیاری؛ برای مقیاس با PostgreSQL و کارگر جداگانه):
+
+```bash
+make docker-build          # ساخت تصویر
+make docker-up             # PostgreSQL + API/داشبورد + کارگر
+# یا بدون Docker:
+NUMBERBANK_DATABASE_URL="postgresql+psycopg://user:pass@host:5432/numberbank" numberbank init
+```
+
 سیاست یکتاسازی: ادغام خودکار تنها با **لنگر هویتی** (شماره مشترک + نام/نشانی هم‌خوان، دامنه یکسان،
 نشانی تقریباً یکسان، یا هسته نام یکسان در همان شهر) انجام می‌شود؛ جفت‌های مشکوک برای **بازبینی
 انسانی** فهرست می‌شوند و هیچ داده‌ای حذف نمی‌شود (رکورد ادغام‌شده `MERGED` می‌شود).

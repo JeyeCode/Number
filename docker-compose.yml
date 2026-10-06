@@ -1,0 +1,48 @@
+# اجرای یکپارچه: PostgreSQL (برای مقیاس) + NumberBank (API/داشبورد/کارگر)
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: numberbank
+      POSTGRES_USER: numberbank
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-numberbank}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U numberbank"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      NUMBERBANK_DATABASE_URL: postgresql+psycopg://numberbank:${POSTGRES_PASSWORD:-numberbank}@db:5432/numberbank
+      NUMBERBANK_HOST: 0.0.0.0
+      NUMBERBANK_PORT: "8000"
+      NUMBERBANK_WORKERS: ${NUMBERBANK_WORKERS:-6}
+      NUMBERBANK_OFFLINE: ${NUMBERBANK_OFFLINE:-false}
+    ports:
+      - "${NUMBERBANK_PORT:-8000}:8000"
+    volumes:
+      - appdata:/data
+
+  worker:
+    build: .
+    depends_on:
+      app:
+        condition: service_started
+    command: ["numberbank", "worker", "--workers", "2"]
+    restart: unless-stopped
+    environment:
+      NUMBERBANK_DATABASE_URL: postgresql+psycopg://numberbank:${POSTGRES_PASSWORD:-numberbank}@db:5432/numberbank
+      NUMBERBANK_OFFLINE: ${NUMBERBANK_OFFLINE:-false}
+    volumes:
+      - appdata:/data
+
+volumes:
+  pgdata:
+  appdata:

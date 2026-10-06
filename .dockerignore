@@ -1,0 +1,10 @@
+.venv/
+.git/
+data/numberbank.db*
+data/logs/
+data/exports/
+data/cache/
+data/fixtures/
+__pycache__/
+.pytest_cache/
+.ruff_cache/

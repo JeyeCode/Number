@@ -36,7 +36,8 @@ demo:
 	$(PY) -m numberbank demo
 
 run:
-	$(PY) -m numberbank discover --province "خوزستان" --cities 2 --target 40 --sources duckduckgo_html,mojeek_html
+	$(PY) -m numberbank discover --province "خوزستان" --cities 3 --target 40 \
+		--source duckduckgo_html --source mojeek_html
 
 serve:
 	$(PY) -m numberbank serve
