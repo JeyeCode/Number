@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}NumberBank{% endblock %} — بانک شماره کسب‌وکارهای ایران</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body data-page="{% block page %}dashboard{% endblock %}" {% block bodyattrs %}{% endblock %}>
+<header class="top">
+  <div class="brand"><span class="dot"></span> NumberBank <span class="muted small">v{{ version }}</span></div>
+  <nav class="main">
+    <a href="/" class="{% if active == 'dashboard' %}active{% endif %}">داشبورد</a>
+    <a href="/businesses" class="{% if active == 'businesses' %}active{% endif %}">کسب‌وکارها</a>
+    <a href="/jobs" class="{% if active == 'jobs' %}active{% endif %}">Jobها</a>
+    <a href="/coverage" class="{% if active == 'coverage' %}active{% endif %}">پوشش جغرافیایی</a>
+    <a href="/sources" class="{% if active == 'sources' %}active{% endif %}">منابع</a>
+    <a href="/docs" target="_blank">API</a>
+  </nav>
+  <div class="spacer"></div>
+  <span class="chip info">سیستم کشف پیوسته داده</span>
+</header>
+<main>
+  {% block content %}{% endblock %}
+</main>
+<footer>
+  NumberBank — کشف، اعتبارسنجی و نگه‌داری بانک شماره‌های تماس تجاری ایران •
+  همه داده‌ها همراه با شاهد (منبع/تاریخ/متن استخراج‌شده) ذخیره می‌شوند • هیچ شماره‌ای حدس زده نمی‌شود
+</footer>
+<div id="toast"></div>
+<script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}پوشش جغرافیایی{% endblock %}
+{% block page %}coverage{% endblock %}
+{% block content %}
+<h1>پوشش جغرافیایی <span class="muted small" id="coverage-summary"></span></h1>
+<div class="card">
+  <table>
+    <thead><tr><th>استان</th><th>شهرستان‌ها</th><th>شهرها</th><th>شهرهای دارای داده</th><th>کسب‌وکار</th><th>پوشش</th></tr></thead>
+    <tbody id="coverage-rows"></tbody>
+  </table>
+</div>
+{% endblock %}

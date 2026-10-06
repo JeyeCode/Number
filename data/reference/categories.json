@@ -1,0 +1,16 @@
+{
+  "note": "واژگان پیش‌فرض در کد تعریف شده‌اند و این فایل فقط آن‌ها را گسترش می‌دهد. هر ترم باید [«واژه», وزن] باشد. برای جانشینی کامل یک دسته از ساختار {\"replace\": true, \"terms\": [[...]]} استفاده کنید.",
+  "categories": {
+    "DETERGENT": [],
+    "HYGIENE": [],
+    "COSMETIC": [],
+    "CELLULOSE": []
+  },
+  "roles": {
+    "WHOLESALER": [],
+    "DISTRIBUTOR": [],
+    "RETAILER": [],
+    "MANUFACTURER": []
+  },
+  "negative": []
+}

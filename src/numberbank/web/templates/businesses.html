@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}کسب‌وکارها{% endblock %}
+{% block page %}businesses{% endblock %}
+{% block content %}
+<h1>کسب‌وکارها <span class="muted small" id="result-count"></span></h1>
+<div class="card">
+  <div class="filters">
+    <label>جستجو <input id="f-search" placeholder="نام، نشانی، شهر، مالک" style="min-width:220px"></label>
+    <label>استان <input id="f-province" style="width:130px"></label>
+    <label>شهر <input id="f-city" style="width:130px"></label>
+    <label>دسته
+      <select id="f-category">
+        <option value="">همه</option>
+        <option value="DETERGENT">شوینده</option>
+        <option value="HYGIENE">بهداشتی</option>
+        <option value="COSMETIC">آرایشی و بهداشتی</option>
+        <option value="CELLULOSE">سلولزی</option>
+      </select></label>
+    <label>سطح اعتبار
+      <select id="f-band">
+        <option value="">همه</option>
+        <option value="VERY_HIGH">بسیار بالا</option>
+        <option value="HIGH">بالا</option>
+        <option value="MEDIUM">متوسط</option>
+        <option value="LOW">پایین</option>
+        <option value="INVALID">نامعتبر</option>
+      </select></label>
+    <label>حداقل امتیاز <input id="f-min" type="number" min="0" max="100" style="width:90px"></label>
+    <button id="apply">اعمال</button>
+  </div>
+  <table>
+    <thead><tr><th>نام</th><th>شهر</th><th>دسته</th><th>شماره‌ها</th><th>اعتبار</th><th>منابع</th><th>وضعیت</th><th>کشف</th></tr></thead>
+    <tbody id="business-rows"></tbody>
+  </table>
+  <div class="flex" style="justify-content:space-between;margin-top:12px">
+    <span class="muted small" id="page-info"></span>
+    <span class="flex"><button class="ghost" id="prev">قبلی</button><button class="ghost" id="next">بعدی</button></span>
+  </div>
+</div>
+{% endblock %}

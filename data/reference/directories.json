@@ -1,0 +1,12 @@
+[
+  {
+    "key": "sample_directory",
+    "name": "نمونه دایرکتوری تجاری (غیرفعال)",
+    "kind": "BUSINESS_DIRECTORY",
+    "reliability": 0.7,
+    "search_url": "https://example.ir/search?q={query}&page={page}",
+    "list_selector": "div.company-item",
+    "enabled": false,
+    "notes": "این یک نمونه است. برای افزودن منبع واقعی، کپی کنید و مقادیر را پر کنید. پیش از استفاده، شرایط استفاده و robots.txt منبع را بررسی کنید."
+  }
+]
