@@ -115,3 +115,47 @@ def test_irrelevant_candidate_is_recorded_but_not_stored_as_business(seeded) -> 
         assert session.execute(select(func.count(Business.id))).scalar() == 0
         assert session.execute(select(func.count(Phone.id))).scalar() == 0
         assert session.execute(select(func.count(SourceObservation.id))).scalar() == 1
+
+
+def test_expired_phones_are_revalidated_and_history_written(seeded) -> None:
+    """مسیر واقعی بازاعتبارسنجی «سررسیده»: شماره پس از سررسید بازبینی و تاریخچه ثبت می‌شود."""
+    from datetime import datetime, timedelta
+
+    from sqlalchemy import func, select
+
+    from numberbank.domain.models import Phone, ValidationHistory
+    from numberbank.pipeline.persist import Persister
+    from numberbank.services.maintenance_service import expire_validations, revalidate_due
+
+    with seeded.session() as session:
+        Persister(session, settings=seeded.settings).upsert_candidates(
+            _candidates(), source_key="fixture_search_a"
+        )
+
+    with seeded.session() as session:
+        phone = session.execute(select(Phone).order_by(Phone.id)).scalars().first()
+        assert phone is not None
+        assert phone.next_check_at is None or phone.next_check_at > datetime.utcnow()
+        phone.next_check_at = datetime.utcnow() + timedelta(days=30)
+        phone_id = phone.id
+
+    # بدون سررسید، هیچ شماره‌ای بازبینی نمی‌شود
+    assert revalidate_due(limit=50, database=seeded)["phones_checked"] == 0
+
+    expired = expire_validations(50, database=seeded)
+    assert expired >= 1
+
+    report = revalidate_due(limit=50, database=seeded)
+    assert report["phones_checked"] >= 1
+    assert report["validation_history"] >= 1
+
+    with seeded.session() as session:
+        phone = session.get(Phone, phone_id)
+        assert phone is not None
+        assert phone.last_validated_at is not None
+        assert phone.validation_count >= 1
+        assert phone.next_check_at > datetime.utcnow()
+        history = session.execute(
+            select(func.count(ValidationHistory.id)).where(ValidationHistory.phone_id == phone_id)
+        ).scalar()
+        assert history >= 1

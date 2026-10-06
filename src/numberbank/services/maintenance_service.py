@@ -47,7 +47,18 @@ def revalidate_due(limit: int = 500, *, database: Database | None = None,
     with database.session() as session:
         service = ValidationService(session, settings)
         report = service.revalidate_due(limit=limit, force=force)
-        return {**report.as_dict(), "changes": report.changes[:50]}
+        from sqlalchemy import func as _func
+
+        from ..domain.models import ValidationHistory
+
+        history_rows = int(
+            session.execute(_func.count(ValidationHistory.id)).scalar() or 0
+        )
+        return {
+            **report.as_dict(),
+            "validation_history": history_rows,
+            "changes": report.changes[:50],
+        }
 
 
 def due_revalidation_count(*, database: Database | None = None, settings: Settings | None = None) -> int:
@@ -55,6 +66,27 @@ def due_revalidation_count(*, database: Database | None = None, settings: Settin
     database = database or get_database(settings)
     with database.session() as session:
         return ValidationService(session, settings).due_count()
+
+
+def expire_validations(limit: int | None = None, *, database: Database | None = None,
+                       settings: Settings | None = None) -> int:
+    """سررسید کردن بازاعتبارسنجی شماره‌ها (کاربرد: آزمون پذیرش، یا اجبار دوره بازبینی).
+
+    شماره‌ها را «اکنون سررسیده» می‌کند تا مسیر واقعی بازاعتبارسنجی (فیلتر due) اجرا شود.
+    """
+    from datetime import datetime
+
+    from ..domain.models import Phone
+
+    database = database or get_database(settings)
+    with database.session() as session:
+        query = select(Phone).order_by(Phone.confidence.desc())
+        if limit:
+            query = query.limit(limit)
+        phones = session.execute(query).scalars().all()
+        for phone in phones:
+            phone.next_check_at = datetime.utcnow()
+        return len(phones)
 
 
 def recompute_scores(*, database: Database | None = None, settings: Settings | None = None,

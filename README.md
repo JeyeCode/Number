@@ -72,6 +72,18 @@ make test                 # اجرای آزمون‌ها (واحد + یکپار�
 |---|---|
 | `NUMBERBANK_OFFLINE` | `true` = فقط پیکره آزمایشی (بدون شبکه) — برای دمو و آزمون |
 | `NUMBERBANK_DATABASE_URL` | پیش‌فرض `sqlite:///./data/numberbank.db`؛ برای مقیاس بزرگ: `postgresql+psycopg://...` |
+
+### اجرا با Docker / PostgreSQL (برای مقیاس بزرگ)
+
+```bash
+make docker-build        # ساخت تصویر (API + داشبورد + CLI)
+make docker-up           # PostgreSQL 16 + app + worker (docker-compose)
+# معادل دستی:
+docker compose up -d --build
+```
+
+فایل‌های `Dockerfile`، `docker-compose.yml` و `.dockerignore` در ریشه مخزن هستند؛ سرویس `worker`
+صف را مصرف می‌کند و سرویس `app` داشبورد/API را روی پورت `8000` منتشر می‌کند.
 | `NUMBERBANK_WORKERS` | تعداد کارگر موازی |
 | `NUMBERBANK_GOOGLE_CSE_KEY` / `..._CX` | فعال‌سازی Google Programmable Search |
 | `NUMBERBANK_BING_API_KEY` | فعال‌سازی Bing Web Search API |
@@ -141,7 +153,7 @@ curl "http://localhost:8000/api/v1/jobs"
 ## ۵) آزمون‌ها و اعتبارسنجی واقعی
 
 ```bash
-make test                                  # ۵۳ آزمون واحد و یکپارچه (آفلاین) — همه سبز
+make test                                  # ۵۴ آزمون واحد و یکپارچه (آفلاین) — همه سبز
 NUMBERBANK_RUN_LIVE=1 make test-live       # ۲ آزمون زنده (نیازمند اینترنت آزاد)
 .venv/bin/numberbank selftest              # دموی سرتاسری + ۸ معیار پذیرش روی دیتابیس موقت
 ```
@@ -169,7 +181,7 @@ NUMBERBANK_RUN_LIVE=1 make test-live       # ۲ آزمون زنده (نیازم�
 ## ۷) وضعیت پروژه و آنچه هنوز انجام نشده
 
 * ✅ کشف، اعتبارسنجی، یکتاسازی، پایگاه داده، صف/کارگر، API، داشبورد، خروجی، آزمون‌ها
-  (۵۳ آزمون سبز + `make demo` با ۸ از ۸ معیار پذیرش)
+  (۵۴ آزمون سبز + `make demo` با ۸ از ۸ و `selftest` با ۱۳ از ۱۳ معیار پذیرش)
 * ⚠️ خزش واقعی اینترنت در محیط سندباکس قابل آزمون نیست؛ مسیر واقعی آماده است اما آزمون زنده
   به شبکه آزاد نیاز دارد (`make test-live`)
 * ⚠️ `fetch-geo` داده کامل ۴۸۴ شهرستان/۱۴۸۱ شهر را می‌گیرد؛ نسخه همراه برنامه ۳۸۰/۵۵۴ است

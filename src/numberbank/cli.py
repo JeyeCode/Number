@@ -319,7 +319,12 @@ def selftest_command(
 ) -> None:
     """آزمون پذیرش خودکار: دموی آفلاین روی دیتابیس موقت + بررسی همه معیارها."""
     from .services.demo_service import run_demo
-    from .services.maintenance_service import full_stats, revalidate_due, run_dedup
+    from .services.maintenance_service import (
+        expire_validations,
+        full_stats,
+        revalidate_due,
+        run_dedup,
+    )
 
     path = Path(db_path)
     if path.exists():
@@ -336,12 +341,15 @@ def selftest_command(
 
     report = asyncio.run(_run())
     dedup = run_dedup(database=database, settings=settings)
+    # بازاعتبارسنجی: ابتدا شماره‌ها را سررسید می‌کنیم تا مسیر واقعی «due» اجرا شود
+    expired = expire_validations(700, database=database, settings=settings)
     validation = revalidate_due(limit=200, database=database, settings=settings)
+    validation["expired"] = expired
     stats = full_stats(database=database, settings=settings, include_synthetic=True)
 
     checks = dict(report.verdict["checks"])
     checks["dedup_ran"] = dedup["scanned"] >= 0
-    checks["revalidation_ran"] = validation["phones_checked"] > 0
+    checks["revalidation_ran"] = validation["phones_checked"] > 0 and validation["validation_history"] > 0
     checks["evidence_urls_present"] = stats["evidence"]["distinct_urls"] > 0
     checks["confidence_scores_computed"] = stats["businesses"]["high_confidence"] > 0
     checks["exports_available"] = True
