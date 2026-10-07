@@ -1,0 +1,264 @@
+{
+  "total_cities": 548,
+  "by_province": [
+    {
+      "province": "گلستان",
+      "counties": 11,
+      "cities": 18,
+      "cities_with_data": 1,
+      "businesses": 28,
+      "coverage_percent": 5.56
+    },
+    {
+      "province": "اصفهان",
+      "counties": 25,
+      "cities": 36,
+      "cities_with_data": 1,
+      "businesses": 27,
+      "coverage_percent": 2.78
+    },
+    {
+      "province": "سیستان و بلوچستان",
+      "counties": 17,
+      "cities": 17,
+      "cities_with_data": 1,
+      "businesses": 27,
+      "coverage_percent": 5.88
+    },
+    {
+      "province": "یزد",
+      "counties": 11,
+      "cities": 11,
+      "cities_with_data": 1,
+      "businesses": 27,
+      "coverage_percent": 9.09
+    },
+    {
+      "province": "سمنان",
+      "counties": 8,
+      "cities": 13,
+      "cities_with_data": 1,
+      "businesses": 26,
+      "coverage_percent": 7.69
+    },
+    {
+      "province": "لرستان",
+      "counties": 8,
+      "cities": 8,
+      "cities_with_data": 1,
+      "businesses": 26,
+      "coverage_percent": 12.5
+    },
+    {
+      "province": "آذربایجان شرقی",
+      "counties": 19,
+      "cities": 34,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "آذربایجان غربی",
+      "counties": 15,
+      "cities": 19,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "اردبیل",
+      "counties": 10,
+      "cities": 15,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "البرز",
+      "counties": 7,
+      "cities": 16,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "ایلام",
+      "counties": 9,
+      "cities": 9,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "بوشهر",
+      "counties": 6,
+      "cities": 9,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "تهران",
+      "counties": 16,
+      "cities": 37,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "خراسان جنوبی",
+      "counties": 9,
+      "cities": 9,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "خراسان رضوی",
+      "counties": 25,
+      "cities": 25,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "خراسان شمالی",
+      "counties": 6,
+      "cities": 6,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "خوزستان",
+      "counties": 22,
+      "cities": 23,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "زنجان",
+      "counties": 8,
+      "cities": 12,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "فارس",
+      "counties": 25,
+      "cities": 25,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "قزوین",
+      "counties": 5,
+      "cities": 15,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "قم",
+      "counties": 1,
+      "cities": 6,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "مازندران",
+      "counties": 19,
+      "cities": 39,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "مرکزی",
+      "counties": 12,
+      "cities": 23,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "هرمزگان",
+      "counties": 9,
+      "cities": 11,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "همدان",
+      "counties": 9,
+      "cities": 9,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "چهارمحال و بختیاری",
+      "counties": 9,
+      "cities": 17,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "کردستان",
+      "counties": 10,
+      "cities": 10,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "کرمان",
+      "counties": 18,
+      "cities": 19,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "کرمانشاه",
+      "counties": 10,
+      "cities": 10,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "کهگیلویه و بویراحمد",
+      "counties": 7,
+      "cities": 7,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    },
+    {
+      "province": "گیلان",
+      "counties": 14,
+      "cities": 40,
+      "cities_with_data": 0,
+      "businesses": 0,
+      "coverage_percent": 0.0
+    }
+  ],
+  "queried_cities": 5,
+  "cities_with_data": 6,
+  "cities_with_valid_data": 6,
+  "remaining_cities": 543,
+  "coverage_percent": 0.91,
+  "by_category": {
+    "DETERGENT": 54,
+    "HYGIENE": 56,
+    "COSMETIC": 51,
+    "CELLULOSE": 0
+  }
+}

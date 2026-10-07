@@ -187,3 +187,18 @@ numberbank list --city خاش --min-confidence 60
 | دیتابیس قفل می‌شود | `NUMBERBANK_WORKERS` را کم کنید؛ WAL و `busy_timeout` فعال است |
 | پوشش صفر است | ابتدا `init` و سپس `discover` را اجرا کنید؛ شهرها فقط با Job کشف پوشش می‌گیرند |
 | منابع فعال نیستند | کلید API را در `.env` بگذارید یا از منابع HTML (DuckDuckGo/Mojeek/SearXNG) استفاده کنید |
+
+
+## دادهٔ نمونهٔ آمادهٔ دانلود
+
+برای استفادهٔ سریع بدون اجرای خزنده، بستهٔ آزمایشی در `demo-dataset/` مخزن قرار دارد:
+
+```bash
+# از مخزن کلون‌شده
+sqlite3 demo-dataset/numberbank-demo.db "SELECT name, city_name, primary_phone FROM v_business_export LIMIT 5;"
+
+# یا اجرای داشبورد روی همان دیتابیس
+NUMBERBANK_DATABASE_URL="sqlite:///$(pwd)/demo-dataset/numberbank-demo.db" numberbank serve --port 8000
+```
+
+⚠️ دادهٔ آن بسته **ساختگی و آزمایشی** است (جزئیات در `demo-dataset/README-DATASET.md`).
