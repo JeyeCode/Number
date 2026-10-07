@@ -1,0 +1,65 @@
+{
+  "product": "NumberBank",
+  "version": "1.0.0",
+  "generated_at": "2026-10-07T04:06:03.110886Z",
+  "artifact_kind": "synthetic-demo-dataset",
+  "warning": "تمام داده‌های این بسته ساختگی و آزمایشی هستند و رکورد واقعی کسب‌وکارها نیستند.",
+  "summary": {
+    "businesses_total": 207,
+    "businesses_active": 161,
+    "phones_total": 212,
+    "phones_valid": 212,
+    "observations": 402,
+    "distinct_source_urls": 152,
+    "cities_with_data": 6,
+    "cities_total": 548,
+    "acceptance_checks_passed": "8/8"
+  },
+  "files": [
+    {
+      "name": "README-DATASET.md",
+      "bytes": 3926,
+      "sha256": "1968a6e2db0bfbc839cfdb9345aff96377339952b28548ef8deff9b8f5c19fc0"
+    },
+    {
+      "name": "businesses.csv",
+      "bytes": 213520,
+      "sha256": "c56d5221c6060a48ab5981947cd1fb7d42ece99e0d5f84c6726440b32bd9db79"
+    },
+    {
+      "name": "businesses.json",
+      "bytes": 337147,
+      "sha256": "da19100545362283967fd819e862f28802f3c9d4a70a7caf3a4d0768f9059de1"
+    },
+    {
+      "name": "businesses.xlsx",
+      "bytes": 45946,
+      "sha256": "2d02c02ecbc6025b9283c532a04fc6601c3223ad53b04436dde8e62c5bf11dae"
+    },
+    {
+      "name": "coverage.json",
+      "bytes": 5678,
+      "sha256": "5417c147246713648f01826c6a9bad427f31445dbe49b212f6ff320744902bab"
+    },
+    {
+      "name": "evidence.csv",
+      "bytes": 213520,
+      "sha256": "c56d5221c6060a48ab5981947cd1fb7d42ece99e0d5f84c6726440b32bd9db79"
+    },
+    {
+      "name": "numberbank-demo.db",
+      "bytes": 3117056,
+      "sha256": "a059c336d0ef3f7bf9868bc5bf62f82887d1d521e23266da729680390abb8c0b"
+    },
+    {
+      "name": "sources.json",
+      "bytes": 4804,
+      "sha256": "7cb3d75e1d0ed71a47d2f70b122abb70e1db9517788d9e90f6dbe6a89346a2ab"
+    },
+    {
+      "name": "stats.json",
+      "bytes": 4028,
+      "sha256": "657a4bc1f524e0272f29083cccbfb8a66c093bfe2824ed140384db5a5a7dad42"
+    }
+  ]
+}

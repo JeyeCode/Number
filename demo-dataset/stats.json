@@ -1,0 +1,203 @@
+{
+  "businesses": {
+    "total": 207,
+    "active": 161,
+    "quarantined": 0,
+    "high_confidence": 161,
+    "new_last_24h": 207,
+    "unique_fingerprints": 207
+  },
+  "phones": {
+    "total": 212,
+    "valid": 212,
+    "probable": 0,
+    "unverified": 0,
+    "invalid": 0,
+    "quarantined": 0,
+    "by_status": {
+      "VALID": 212
+    }
+  },
+  "bands": {
+    "HIGH": 195,
+    "INVALID": 1,
+    "LOW": 11
+  },
+  "categories": {
+    "COSMETIC": 51,
+    "DETERGENT": 54,
+    "HYGIENE": 56
+  },
+  "business_types": {
+    "DISTRIBUTOR": 56,
+    "RETAILER": 51,
+    "WHOLESALER": 54
+  },
+  "locations": {
+    "cities_total": 548,
+    "cities_with_data": 6,
+    "cities_remaining": 542,
+    "coverage_percent": 1.09,
+    "provinces_total": 31
+  },
+  "queries": {
+    "total": 793,
+    "done": 793,
+    "pending": 0,
+    "progress_percent": 100.0
+  },
+  "duplicates": {
+    "merged_records": 46,
+    "records": 46
+  },
+  "evidence": {
+    "observations": 402,
+    "distinct_urls": 152
+  },
+  "sources": {
+    "count": 11,
+    "usage": [
+      {
+        "key": "fixture_search_a",
+        "name": "منبع آزمایشی fixture_search_a",
+        "observations": 240
+      },
+      {
+        "key": "fixture_search_b",
+        "name": "منبع آزمایشی fixture_search_b",
+        "observations": 162
+      },
+      {
+        "key": "bing_api",
+        "name": "Bing Web Search API",
+        "observations": 0
+      },
+      {
+        "key": "bing_html",
+        "name": "Bing (HTML)",
+        "observations": 0
+      },
+      {
+        "key": "duckduckgo_html",
+        "name": "DuckDuckGo (HTML)",
+        "observations": 0
+      },
+      {
+        "key": "google_cse",
+        "name": "Google Programmable Search (CSE)",
+        "observations": 0
+      },
+      {
+        "key": "mojeek_html",
+        "name": "Mojeek (HTML)",
+        "observations": 0
+      },
+      {
+        "key": "osm_overpass",
+        "name": "OpenStreetMap (Overpass API)",
+        "observations": 0
+      },
+      {
+        "key": "sample_directory",
+        "name": "نمونه دایرکتوری تجاری (غیرفعال)",
+        "observations": 0
+      },
+      {
+        "key": "searx",
+        "name": "SearXNG (نمونه‌های عمومی)",
+        "observations": 0
+      },
+      {
+        "key": "serpapi",
+        "name": "SerpAPI (Google/Bing)",
+        "observations": 0
+      }
+    ]
+  },
+  "jobs": {
+    "active": 0
+  },
+  "errors": 0,
+  "top_cities": [
+    {
+      "city": "نطنز",
+      "count": 36
+    },
+    {
+      "city": "بافق",
+      "count": 35
+    },
+    {
+      "city": "بندرگز",
+      "count": 35
+    },
+    {
+      "city": "مهدی شهر",
+      "count": 34
+    },
+    {
+      "city": "کوهدشت",
+      "count": 34
+    },
+    {
+      "city": "خاش",
+      "count": 33
+    }
+  ],
+  "by_province": [
+    {
+      "province": "اصفهان",
+      "count": 35
+    },
+    {
+      "province": "لرستان",
+      "count": 35
+    },
+    {
+      "province": "گلستان",
+      "count": 35
+    },
+    {
+      "province": "یزد",
+      "count": 35
+    },
+    {
+      "province": "سمنان",
+      "count": 34
+    },
+    {
+      "province": "سیستان و بلوچستان",
+      "count": 33
+    }
+  ],
+  "jobs_recent": [
+    {
+      "id": 2,
+      "name": "دموی آفلاین — اجرای 2",
+      "status": "DONE",
+      "progress": 100.0,
+      "businesses_new": 34,
+      "phones_new": 42,
+      "errors": 0,
+      "started_at": "2026-10-07T04:04:35.061101",
+      "finished_at": "2026-10-07T04:05:44.975393",
+      "message": " | پایان: completed"
+    },
+    {
+      "id": 1,
+      "name": "دموی آفلاین — اجرای 1",
+      "status": "DONE",
+      "progress": 100.0,
+      "businesses_new": 173,
+      "phones_new": 170,
+      "errors": 0,
+      "started_at": "2026-10-07T04:03:21.184027",
+      "finished_at": "2026-10-07T04:04:35.056324",
+      "message": " | پایان: completed"
+    }
+  ],
+  "errors_recent": [],
+  "revalidation": {
+    "due": 0
+  }
+}
