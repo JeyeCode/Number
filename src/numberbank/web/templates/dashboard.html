@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}داشبورد{% endblock %}
+{% block page %}dashboard{% endblock %}
+{% block content %}
+<h1>داشبورد</h1>
+<div class="grid cols-4">
+  <div class="card kpi"><div class="label">کسب‌وکار فعال</div><div class="value" id="kpi-businesses">…</div>
+    <div class="sub" id="kpi-businesses-sub"></div></div>
+  <div class="card kpi ok"><div class="label">شماره‌های ثبت‌شده</div><div class="value" id="kpi-phones">…</div>
+    <div class="sub" id="kpi-phones-sub"></div></div>
+  <div class="card kpi"><div class="label">شواهد ثبت‌شده</div><div class="value" id="kpi-evidence">…</div>
+    <div class="sub" id="kpi-evidence-sub"></div></div>
+  <div class="card kpi"><div class="label">پوشش شهرها</div><div class="value" id="kpi-coverage">…</div>
+    <div class="sub" id="kpi-coverage-sub"></div></div>
+  <div class="card kpi warn"><div class="label">تکراری‌های ادغام‌شده</div><div class="value" id="kpi-duplicates">…</div>
+    <div class="sub">ادغام با حفظ همه منابع</div></div>
+  <div class="card kpi bad"><div class="label">خطاهای ثبت‌شده</div><div class="value" id="kpi-errors">…</div>
+    <div class="sub">یک خطا هرگز کل Job را متوقف نمی‌کند</div></div>
+</div>
+<div class="grid cols-2" style="margin-top:14px">
+  <div class="card"><h2>توزیع سطح اعتبار</h2><div class="stack" id="bands"></div></div>
+  <div class="card"><h2>توزیع دسته‌ها</h2><div class="stack" id="categories"></div></div>
+</div>
+<div class="grid cols-2" style="margin-top:14px">
+  <div class="card">
+    <h2>آخرین Jobها</h2>
+    <table><thead><tr><th>نام</th><th>وضعیت</th><th>کسب‌وکار/شماره جدید</th><th>خطا</th><th>پایان</th></tr></thead>
+    <tbody id="recent-jobs"></tbody></table>
+  </div>
+  <div class="card"><h2>شهرهای برتر</h2><div class="stack" id="top-cities"></div></div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}جزئیات کسب‌وکار{% endblock %}
+{% block page %}business-detail{% endblock %}
+{% block bodyattrs %}data-business-id="{{ business_id }}"{% endblock %}
+{% block content %}
+<h1 id="detail-title">کسب‌وکار #{{ business_id }}</h1>
+<div class="flex" id="detail-meta"></div>
+<div class="grid cols-2" style="margin-top:14px">
+  <div class="card">
+    <h2>مشخصات</h2>
+    <dl class="kv" id="detail-kv"></dl>
+    <h2>شماره‌ها</h2>
+    <table><thead><tr><th>شماره</th><th>نوع</th><th>وضعیت</th><th>اعتبار</th><th></th></tr></thead>
+      <tbody id="detail-phones"></tbody></table>
+  </div>
+  <div class="card">
+    <h2>شواهد (قابل بازبینی کاربر)</h2>
+    <table><thead><tr><th>منبع</th><th>متن استخراج‌شده</th><th>وضعیت</th><th>تاریخ مشاهده</th></tr></thead>
+      <tbody id="detail-evidence"></tbody></table>
+    <h2>تاریخچه اعتبارسنجی</h2>
+    <table><thead><tr><th>زمان</th><th>نتیجه</th><th>سطح</th><th>اعتبار</th><th>روش</th></tr></thead>
+      <tbody id="detail-validations"></tbody></table>
+  </div>
+</div>
+<div class="grid cols-2" style="margin-top:14px">
+  <div class="card"><h2>تفکیک امتیاز اعتبار</h2><pre class="mono small" id="detail-breakdown"></pre></div>
+  <div class="card"><h2>شواهد امتیاز ارتباط</h2><pre class="mono small" id="detail-relevance"></pre></div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}منابع{% endblock %}
+{% block page %}sources{% endblock %}
+{% block content %}
+<h1>منابع کشف داده</h1>
+<div class="card">
+  <p class="muted small">هر منبع با کلید، نوع، سطح اطمینان و وضعیت دسترسی نمایش داده می‌شود. منابع موتور جستجو با
+    کلید API یا نمونه‌های عمومی فعال می‌شوند؛ منابع دایرکتوری از فایل پیکربندی خوانده می‌شوند.</p>
+  <table>
+    <thead><tr><th>منبع</th><th>نوع</th><th>وضعیت</th><th>اعتبار</th><th>شواهد</th><th>یادداشت</th></tr></thead>
+    <tbody id="source-rows"></tbody>
+  </table>
+</div>
+{% endblock %}

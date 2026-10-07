@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Jobها{% endblock %}
+{% block page %}jobs{% endblock %}
+{% block content %}
+<h1>Jobهای کشف داده</h1>
+<div class="grid cols-2">
+  <div class="card">
+    <h2>ساخت Job جدید (پردازش دسته‌ای)</h2>
+    <form id="job-form" class="stack">
+      <label>نام Job <input id="job-name" placeholder="مثلاً: پوشش شوینده‌های خراسان جنوبی"></label>
+      <div class="flex">
+        <label>استان‌ها (با کاما) <input id="job-provinces" placeholder="خراسان جنوبی، یزد"></label>
+        <label>شهرها (با کاما) <input id="job-cities" placeholder="بیرجند، طبس"></label>
+      </div>
+      <div class="flex">
+        <label>دسته‌ها <input id="job-categories" placeholder="DETERGENT, HYGIENE"></label>
+        <label>نوع کسب‌وکار <input id="job-business-types" placeholder="WHOLESALER, DISTRIBUTOR"></label>
+      </div>
+      <div class="flex">
+        <label>منابع <input id="job-sources" placeholder="خالی = همه منابع فعال"></label>
+        <label>هدف (تعداد) <input id="job-target" type="number" value="500" style="width:110px"></label>
+        <label>حداقل اعتبار <input id="job-min-confidence" type="number" value="45" style="width:110px"></label>
+      </div>
+      <div class="flex">
+        <label>کارگر <input id="job-workers" type="number" value="6" style="width:90px"></label>
+        <label>صفحه/پرس‌وجو <input id="job-pages" type="number" value="2" style="width:90px"></label>
+        <label>محدودیت زمان (ثانیه) <input id="job-time-limit" type="number" value="900" style="width:120px"></label>
+      </div>
+      <div class="flex"><button type="submit">ساخت Job</button>
+        <span class="muted small">سپس با <span class="mono">numberbank run-job ID</span> یا <span class="mono">numberbank worker</span> اجرا کنید.</span></div>
+    </form>
+  </div>
+  <div class="card">
+    <h2>وضعیت</h2>
+    <p class="muted small">پیشرفت هر Job، خطاها و میزان داده جدید در جدول زیر زنده به‌روزرسانی می‌شود.
+      توقف Job از طریق API (<span class="mono">/api/v1/jobs/ID/cancel</span>) یا CLI انجام می‌شود.</p>
+    <div class="legend"><span>• اجرای مجدد همان Job، شماره‌های پیشین را «جدید» گزارش نمی‌کند</span>
+      <span>• داده تکراری ادغام و همه منابع حفظ می‌شوند</span></div>
+  </div>
+</div>
+<div class="card" style="margin-top:14px">
+  <h2>فهرست Jobها</h2>
+  <table>
+    <thead><tr><th>#</th><th>نام</th><th>وضعیت</th><th>پیشرفت</th><th>کسب‌وکار جدید</th><th>شماره جدید</th><th>خطا</th><th>پایان</th></tr></thead>
+    <tbody id="job-rows"></tbody>
+  </table>
+</div>
+{% endblock %}
